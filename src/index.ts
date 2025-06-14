@@ -1,3 +1,5 @@
-export { default as Button, type ButtonProps } from './components/Button/Button';
-export { default } from './main';
-export * from './types';
+export { default as useVibra } from './hooks/use-vibra';
+export {
+  default as VibraInitializer,
+  type VibraInitializerProps,
+} from './components/vibra-initializer';

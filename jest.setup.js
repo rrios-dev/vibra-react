@@ -13,4 +13,31 @@ Object.defineProperty(window, 'matchMedia', {
         removeEventListener: jest.fn(),
         dispatchEvent: jest.fn(),
     })),
+});
+
+// Mock ResizeObserver
+global.ResizeObserver = jest.fn().mockImplementation(() => ({
+    observe: jest.fn(),
+    unobserve: jest.fn(),
+    disconnect: jest.fn(),
+}));
+
+// Mock IntersectionObserver
+global.IntersectionObserver = jest.fn().mockImplementation(() => ({
+    observe: jest.fn(),
+    unobserve: jest.fn(),
+    disconnect: jest.fn(),
+}));
+
+// Mock MutationObserver
+global.MutationObserver = jest.fn().mockImplementation(() => ({
+    observe: jest.fn(),
+    disconnect: jest.fn(),
+    takeRecords: jest.fn(),
+}));
+
+// Clean up after each test
+afterEach(() => {
+    jest.clearAllMocks();
+    document.body.innerHTML = '';
 }); 
